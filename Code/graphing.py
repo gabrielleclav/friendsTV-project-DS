@@ -37,6 +37,5 @@ def plotly_bar(data, color, graph_title, x_axis_title='Character', y_axis_title=
     fig.show()
 
 
-def knn_eda():
     
     
