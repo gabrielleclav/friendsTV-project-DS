@@ -7,6 +7,7 @@ import streamlit as st
 import pickle 
 from graphing import bar_streamlit
 
+
 #Function(s) for the web-app ---------------------------------------------------------------------
     
 
@@ -47,6 +48,13 @@ def which_char(pred, couple_ed):
 #Load in the dataset -------------------------------------------------------------
 friends = pd.read_csv("../Datasets/friends-modeling.csv")
 common_words = pd.read_csv('../Datasets/common-words.csv')
+phoebe = pd.read_csv('../Datasets/phoebe-word-importance.csv')
+joey = pd.read_csv('../Datasets/joey-word-importance.csv')
+ross = pd.read_csv('../Datasets/ross-word-importance.csv')
+rachel = pd.read_csv('../Datasets/rachel-word-importance.csv')
+chan = pd.read_csv('../Datasets/chandler-word-importance.csv')
+monica = pd.read_csv('../Datasets/monica-word-importance.csv')
+
 
 #Start the code for the web-app -----------------------------------------------------
 
@@ -214,7 +222,8 @@ elif page == 'Exploratory Analysis':
             ''')
 
     #Giving the user an option to see any season they want 
-    opt_s = st.selectbox('Select a Season:',['s01', 's02', 's03', 's04', 's05', 's06', 's07', 's08', 's09', 's10'])
+    opt_s = st.selectbox('Select a Season:',['s01', 's02', 's03', 's04', 
+    's05', 's06', 's07', 's08', 's09', 's10'])
 
     #Doing a little groupby to show the seasons
     by_season = friends.groupby('season')['character'].value_counts()
@@ -232,13 +241,50 @@ elif page == 'Exploratory Analysis':
              ''')
 
     #Doing a most common words used amongst all the characters in a graph 
-    st.plotly_chart(bar_streamlit(data = common_words,
-              x= common_words['word'],
-              y= common_words['count'],
-              color = common_words['count'],
+    res = num = st.slider("Select how many results you want to see: ", 5,50)
+
+    st.plotly_chart(bar_streamlit(data = common_words.head(res),
+              x= common_words['word'].head(res),
+              y= common_words['count'].head(res),
+              color = common_words['count'].head(res),
              graph_title = 'Top 50 Most Common Words',
              x_axis_title = 'Common Words'))
-        
+    
+    #Displaying all the word importance dataframes on the page 
+    st.write('''
+    This graphs displays the most common words starting at the top 4 to the top 50! 
+
+    ***
+    #### Word Importance
+
+    When I did the logistic modeling, I checked the coefficients of the each character class for all the words that were
+    in the datasets. Here are some tables showing the coefficients for each character. 
+
+    ''')
+    opt_char = st.selectbox('Select a Season:',['Phoebe', 'Joey', 'Rachel', 'Ross', 
+    'Monica', 'Chandler'])
+
+    if opt_char == 'Phoebe':
+        #Phoebe's dataframe
+        st.dataframe(phoebe.set_index('Unnamed: 0').head(10))
+
+    elif opt_char == 'Joey':
+        #Joey's dataframe
+        st.dataframe(joey.set_index('Unnamed: 0').head(10))
+    elif opt_char == 'Rachel':
+        #Rachel's dataframe
+        st.dataframe(rachel.set_index('Unnamed: 0').head(10))
+    elif opt_char == 'Ross':
+        #Ross' dataframe
+        st.dataframe(ross.set_index('Unnamed: 0').head(10))
+    elif opt_char == 'Monica':
+        #Monica's dataframe
+        st.dataframe(monica.set_index('Unnamed: 0').head(10))
+    else:
+        #Chandler's daatframe
+        st.dataframe(chan.set_index('Unnamed: 0').head(10))
+
+
 
 
 #Making a character Prediction ------------------------------------------------------------------------------

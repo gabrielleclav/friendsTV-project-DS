@@ -51,7 +51,6 @@ def bar_streamlit(data, color, graph_title, x_axis_title='Character', y_axis_tit
         xaxis_title= x_axis_title,
         yaxis_title= y_axis_title,
         legend_title="color",
-        width=1020, #to display better on the app
         font=dict(
             family="Times New Roman, monospace",
             size=14,
