@@ -251,7 +251,7 @@ elif page == 'Exploratory Analysis':
     
     #Displaying all the word importance dataframes on the page 
     st.write('''
-    This graphs displays the most common words starting at the top 4 to the top 50! 
+    This graphs displays the most common words starting at the top 5 to the top 50! 
 
     ***
     #### Word Importance
