@@ -12,7 +12,6 @@ import pandas as pd
 
 #graphing libraries 
 import matplotlib.pyplot as plt
-import seaborn as sns 
 import plotly.express as px
 
 
@@ -54,7 +53,7 @@ def bar_streamlit(data, color, graph_title, x_axis_title='Character', y_axis_tit
         font=dict(
             family="Times New Roman, monospace",
             size=14,
-            color="palevioletred"
+            color="antiquewhite"
     ))
     return fig 
 

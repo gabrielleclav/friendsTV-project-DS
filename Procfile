@@ -1,1 +1,1 @@
-web: sh heroku-setup.sh && streamlit run Code/web-app-friends.py
+web: sh heroku-setup.sh && streamlit run web-app-friends.py
