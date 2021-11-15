@@ -246,7 +246,7 @@ elif page == 'Exploratory Analysis':
               x= common_words['word'].head(res),
               y= common_words['count'].head(res),
               color = common_words['count'].head(res),
-             graph_title = 'Top 50 Most Common Words',
+             graph_title = f'Top {res} Most Common Words',
              x_axis_title = 'Common Words'))
     
     #Displaying all the word importance dataframes on the page 
