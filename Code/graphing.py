@@ -53,7 +53,7 @@ def bar_streamlit(data, color, graph_title, x_axis_title='Character', y_axis_tit
         font=dict(
             family="Times New Roman, monospace",
             size=14,
-            color="antiquewhite"
+            color="palevioletred"
     ))
     return fig 
 
