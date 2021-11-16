@@ -156,7 +156,7 @@ elif page == 'About This Project':
     I chose to do this project because I 
     love the show Friends and I love NLP or 
     anything that is AI related! I loved binge watching Friends when I 
-    was younger, so I decided to do an Natural Langauge Processing project using 
+    was younger, so I decided to do a Natural Language Processing project using 
     their dialogues. I found a dataset with their transcripts in it. I was originally 
     web-scraping a website for it, and will definitely still work on it since there are 
     a bunch of different HTML tags used, making it a little bit more challenging.
