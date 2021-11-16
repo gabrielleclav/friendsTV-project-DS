@@ -246,12 +246,12 @@ elif page == 'Exploratory Analysis':
               x= common_words['word'].head(res),
               y= common_words['count'].head(res),
               color = common_words['count'].head(res),
-             graph_title = f'Top {res} Most Common Words',
+             graph_title = f'Top {res} Most Common Words from CountVectorizer',
              x_axis_title = 'Common Words'))
     
     #Displaying all the word importance dataframes on the page 
     st.write('''
-    This graphs displays the most common words starting at the top 5 to the top 50! 
+    This graphs displays the most common words starting at the top 5 to the top 50 from CountVectorizer! 
 
     ***
     #### Word Importance
